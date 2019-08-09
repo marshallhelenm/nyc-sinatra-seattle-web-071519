@@ -1,0 +1,15 @@
+<%# show page for one @figure %>
+<h3><%= @figure.name %><br></h3>
+    Titles:<br>
+    <% @figure.titles.each do |title| %>
+        <%= title.name %>
+    <% end %>
+    Landmarks:<br>
+    <% @figure.landmarks.each do |landmark| %>
+        <%= landmark.name %><br>
+    <% end %>
+
+<form method="POST" action="/figures/<%= @figure.id %>">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" id="delete" value="Delete">
+</form>
